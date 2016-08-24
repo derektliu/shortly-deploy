@@ -41,6 +41,7 @@
     "sqlite3": "~3.1.1"
   },
   "devDependencies": {
+    "grunt-nodemon": "^0.4.2",
     "supertest": "^1.2.0"
   }
 }
