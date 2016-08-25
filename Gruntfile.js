@@ -109,7 +109,7 @@ module.exports = function(grunt) {
 
     sshexec: {
       test: {
-        command: 'cd /root/shortly-deploy && npm install && grunt deploy',
+        command: 'cd /root/shortly-deploy && npm install && npm install sqlite3 && grunt deploy',
         options: {
           host: '104.236.169.116',
           username: 'root',
