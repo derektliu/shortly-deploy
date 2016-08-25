@@ -109,11 +109,11 @@ module.exports = function(grunt) {
 
     sshexec: {
       test: {
-        command: 'cd /root/shortly-deploy && grunt deploy',
+        command: 'cd /root/shortly-deploy && npm install && grunt deploy',
         options: {
           host: '104.236.169.116',
           username: 'root',
-          privateKey: grunt.file.read('/Volumes/student/ssh/id_rsa'),
+          privateKey: grunt.file.exists('/Volumes/student/ssh/id_rsa') ? grunt.file.read('/Volumes/student/ssh/id_rsa') : '',
           passphrase: 'hack47'
         }
       }
