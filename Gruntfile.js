@@ -97,11 +97,13 @@ module.exports = function(grunt) {
     },
 
     shell: {
-      // prodServer: {
-
-      // },
+      prodServer: {
+      },
       devServer: {
-        command: 'git push live master'
+        command: [
+          'git push live master',
+          'grunt upload --prod=true'
+        ].join('&&')
       }
     },
 
@@ -109,7 +111,12 @@ module.exports = function(grunt) {
 
     sshexec: {
       test: {
-        command: 'cd /root/shortly-deploy && npm install && npm install sqlite3 && grunt deploy',
+        command: [
+          'cd /root/shortly-deploy',
+          'npm install',
+          'npm install sqlite3',
+          'grunt deploy'
+        ].join(' && '),
         options: {
           host: '104.236.169.116',
           username: 'root',
@@ -151,19 +158,9 @@ module.exports = function(grunt) {
 
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
-      // add your production server task here
-      //ssh into
-
-      //go to folder
-      //npm install 
-      //grunt deploy
+      grunt.task.run(['sshexec']);
     } else {
-      grunt.task.run([
-        // git push
-        // grunt shell:devServer
-        'shell:devServer'
-      ]);
-      // grunt upload --prod=true
+      grunt.task.run(['shell:devServer']);
     }
   });
 
