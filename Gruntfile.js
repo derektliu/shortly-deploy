@@ -41,6 +41,16 @@ module.exports = function(grunt) {
     },
 
     uglify: {
+      client: {
+        files: {
+          'public/dist/client.js': ['public/dist/client.js']
+        }
+      },
+      library: {
+        files: {
+          'public/dist/lib.js': ['public/dist/lib.js']
+        }
+      }
     },
 
     eslint: {
