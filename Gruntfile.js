@@ -97,7 +97,25 @@ module.exports = function(grunt) {
     },
 
     shell: {
-      prodServer: {
+      // prodServer: {
+
+      // },
+      devServer: {
+        command: 'git push live master'
+      }
+    },
+
+    secret: grunt.file.readJSON('secret.json'),
+
+    sshexec: {
+      test: {
+        command: 'cd /root/shortly-deploy && grunt deploy',
+        options: {
+          host: '104.236.169.116',
+          username: 'root',
+          privateKey: grunt.file.read('/Volumes/student/ssh/id_rsa'),
+          passphrase: 'hack47'
+        }
       }
     },
   });
@@ -111,6 +129,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-shell');
   grunt.loadNpmTasks('grunt-nodemon');
   grunt.loadNpmTasks('grunt-concurrent');
+  grunt.loadNpmTasks('grunt-ssh');
 
   grunt.registerTask('server-dev', function (target) {
     grunt.task.run([ 'nodemon', 'watch' ]);
@@ -133,8 +152,18 @@ module.exports = function(grunt) {
   grunt.registerTask('upload', function(n) {
     if (grunt.option('prod')) {
       // add your production server task here
+      //ssh into
+
+      //go to folder
+      //npm install 
+      //grunt deploy
     } else {
-      grunt.task.run([ 'server-dev' ]);
+      grunt.task.run([
+        // git push
+        // grunt shell:devServer
+        'shell:devServer'
+      ]);
+      // grunt upload --prod=true
     }
   });
 
