@@ -26,6 +26,7 @@
     "express-partials": "^0.2.0",
     "express-session": "^1.13.0",
     "grunt": "^0.4.4",
+    "grunt-concurrent": "^2.3.1",
     "grunt-contrib-concat": "^1.0.0",
     "grunt-contrib-cssmin": "^1.0.1",
     "grunt-contrib-uglify": "^1.0.1",
@@ -41,7 +42,6 @@
     "sqlite3": "~3.1.1"
   },
   "devDependencies": {
-    "grunt-nodemon": "^0.4.2",
     "supertest": "^1.2.0"
   }
 }
