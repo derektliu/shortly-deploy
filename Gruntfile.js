@@ -36,7 +36,7 @@ module.exports = function(grunt) {
     mochaTest: {
       test: {
         options: {
-          reporter: 'spec'
+          reporter: 'nyan'
         },
         src: ['test/**/*.js']
       }
@@ -107,7 +107,7 @@ module.exports = function(grunt) {
       }
     },
 
-    secret: grunt.file.readJSON('secret.json'),
+    // secret: grunt.file.readJSON('secret.json'),
 
     sshexec: {
       test: {
@@ -138,9 +138,9 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-ssh');
 
-  grunt.registerTask('server-dev', function (target) {
-    grunt.task.run([ 'nodemon', 'watch' ]);
-  });
+  // grunt.registerTask('server-dev', function (target) {
+  //   grunt.task.run([ 'nodemon', 'watch' ]);
+  // });
 
   ////////////////////////////////////////////////////
   // Main grunt tasks
